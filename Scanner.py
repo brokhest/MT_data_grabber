@@ -14,7 +14,7 @@ class Scanner(object):
         # self.start()
 
     def __str__(self):
-        return f"x:{self.__coords['x']}, y:{self.__coords['x']}, z:{self.__coords['x']}"
+        return f"x:{self.__coords['x']}, y:{self.__coords['y']}, z:{self.__coords['x']}"
 
     def __repr__(self):
         return self.__coords
@@ -27,14 +27,24 @@ class Scanner(object):
 
     def __scan(self):
         while self.__status:
-            requests.get(url=self.__requests.page['url'], headers=self.__requests.page['headers'])
-            # print(page.text)
-            for block in self.__test:
-                data = requests.get(url=block['url'], headers=block['headers'])
-                useful_data = self.__convert(data.json())
-                for ship in useful_data:
-                    Queue.add(ship)
-            time.sleep(10)
+            try:
+                requests.get(url=self.__requests.page['url'], headers=self.__requests.page['headers'])
+            except requests.exceptions.ConnectionError:
+                print('faced connection error, will retry in 10 seconds')
+                time.sleep(10)
+                continue
+            for i in range(12):
+                for block in self.__test:
+                    try:
+                        data = requests.get(url=block['url'], headers=block['headers'])
+                    except requests.exceptions.ConnectionError:
+                        print('faced API connection error, will retry in 10 seconds')
+                        time.sleep(10)
+                        continue
+                    useful_data = self.__convert(data.json())
+                    for ship in useful_data:
+                        Queue.add(ship)
+                time.sleep(10)
 
     @staticmethod
     def __convert(data):
@@ -42,7 +52,6 @@ class Scanner(object):
         ships = data['data']
         for ship in ships['rows']:
             ship_data.append(ship)
-        print(ships['areaShips'])
         return ship_data
 
     def stop(self):

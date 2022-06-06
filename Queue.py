@@ -1,4 +1,3 @@
-from threading import Lock
 from multiprocessing import Lock
 import json
 import os
@@ -32,7 +31,14 @@ class Queue:
                 f.writelines(data[1:])
                 f.truncate()
             mutex.release()
-            return json.loads(ship)
+            try:
+                answer = json.loads(ship)
+            except ValueError:
+                answer = None
+            return answer
+        else:
+            mutex.release()
+            return None
 
     @staticmethod
     def is_empty():

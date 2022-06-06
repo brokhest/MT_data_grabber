@@ -19,7 +19,9 @@ class Analyzer(object):
     def __analyze(self):
         num = 0
         while self.__status:
-            ship = self.__grab(self)
+            ship = self.__grab()
+            if ship is None:
+                continue
             num += 1
             if ship is None:
                 continue
@@ -29,13 +31,13 @@ class Analyzer(object):
             relevance = self.__is_relevant(ship)
             if relevance == 0:
                 DBHook.add(ship)
-                print('record: ' + str(num))
+                # print('record: ' + str(num))
             elif relevance == 1:
                 DBHook.update(ship)
-                print('record: ' + str(num))
+                # print('record: ' + str(num))
 
     @staticmethod
-    def __grab(self):
+    def __grab():
         if Queue.is_empty():
             time.sleep(10)
             print('Проснулся')
@@ -81,7 +83,7 @@ class Analyzer(object):
                                            'rotation')):
             integrity = False
         for k, v in ship.items():
-            if v == None:
+            if v is None:
                 integrity = False
                 break
         if ship['type'] == "skip":

@@ -1,11 +1,14 @@
 
 
 shipType_map = {
-    #VTS - не интересует
+    # VTS - не интересует
     "0": "skip",
+    # Буйки и подобное
+    "1": "skip",
     "2": "fishing",
     # буксир
     "3": "tag",
+    "4": "high_speed_craft",
     "6": "passenger",
     "7": "cargo",
     "8": "tanker",

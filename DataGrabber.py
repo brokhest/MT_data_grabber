@@ -33,5 +33,7 @@ class DataGrabber:
         DataGrabber.__scans[id].stop()
         DataGrabber.__processes[id].terminate()
         del DataGrabber.__scans[id]
+        del DataGrabber.__processes[id]
         if len(DataGrabber.__scans) == 0:
             AnalysisController.notify()
+
