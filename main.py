@@ -1,9 +1,11 @@
 import threading
 import time
 from DataGrabber import DataGrabber
+from multiprocessing import Lock
 from Calculator import CoordinatesCalculator
-from analysis_controller import AnalysisController
+from Analysis_controller import AnalysisController
 
+mutex = Lock()
 
 if __name__ == "__main__":
     area = []
@@ -35,7 +37,7 @@ if __name__ == "__main__":
     area.append(bot)
     #location = CoordinatesCalculator.calculate(area)
     #print(CoordinatesCalculator.calculate(area))
-    #DataGrabber.start_scan(area)
+    DataGrabber.start_scan(area, mutex)
     area = []
     top = {
         "x": {
@@ -65,13 +67,14 @@ if __name__ == "__main__":
     area.append(bot)
     #print(CoordinatesCalculator.calculate(area))
     #location = CoordinatesCalculator.calculate(area)
-    #DataGrabber.start_scan(area)
+    DataGrabber.start_scan(area, mutex)
     # DataGrabber.start_scan(location['page'], location['blocks'])
+    time.sleep(600)
+    #print("stopping")
+    DataGrabber.stop_scan(0)
+    DataGrabber.stop_scan(0)
     #time.sleep(60)
-    print("stopping")
-   # DataGrabber.stop_scan(0)
-    #time.sleep(60)
-    print('stop')
+    #print('stop')
     #DataGrabber.stop_scan(0)
 
     area = []
@@ -104,7 +107,7 @@ if __name__ == "__main__":
     #DataGrabber.start_scan(area)
     #time.sleep(10)
     #DataGrabber.stop_scan(0)
-    AnalysisController.start()
+    #AnalysisController.start()
 
 
 

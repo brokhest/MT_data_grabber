@@ -1,4 +1,6 @@
 from Calculator import CoordinatesCalculator
+from Logger import Logger
+from multiprocessing import Process
 
 
 if __name__ == "__main__":
@@ -41,3 +43,12 @@ if __name__ == "__main__":
     }
 
     print(CoordinatesCalculator.calculate(area))
+    Logger.clear()
+    processes = []
+    message = 'тестовое сообщение'
+    for i in range (5):
+        p = Process(target=Logger.log, args=[message])
+        p.start()
+        processes.append(p)
+    for p in processes:
+        p.join()

@@ -4,6 +4,7 @@ from multiprocessing import Process
 from Queue import Queue
 from Analyzer import Analyzer
 import threading
+from Logger import Logger
 
 
 class AnalysisController:
@@ -14,16 +15,17 @@ class AnalysisController:
     __empty = False
 
     @staticmethod
-    def start():
+    def start(mutex):
         if AnalysisController.__in_work:
             return
         AnalysisController.__in_work = True
-        analysis = Analyzer()
-        AnalysisController.__analyzers.append(analysis)
-        AnalysisController.__start_analysis()
+        for i in range (3):
+            analysis = Analyzer()
+            AnalysisController.__analyzers.append(analysis)
+        Logger.log_analysis_start()
+        AnalysisController.__start_analysis(mutex)
         threading.Thread(target=AnalysisController.__check_file).start()
         return
-
 
     @staticmethod
     def __check_file():
@@ -35,9 +37,9 @@ class AnalysisController:
             time.sleep(20)
 
     @staticmethod
-    def __start_analysis():
+    def __start_analysis(mutex):
         for analysis in AnalysisController.__analyzers:
-            p = Process(target=analysis.start)
+            p = Process(target=Analyzer.start, args=(analysis, mutex))
             p.start()
             AnalysisController.__processes.append(p)
             # threading.Thread(target=analysis.start).start()
@@ -45,6 +47,7 @@ class AnalysisController:
 
     @staticmethod
     def __stop_analysis():
+        Logger.log_analysis_stop()
         for analysis in AnalysisController.__analyzers:
             analysis.stop()
         for process in AnalysisController.__processes:

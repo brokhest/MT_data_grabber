@@ -2,6 +2,7 @@ import time
 from Requests import Requests
 import requests
 from Queue import Queue
+from Logger import Logger
 
 
 class Scanner(object):
@@ -14,7 +15,7 @@ class Scanner(object):
         # self.start()
 
     def __str__(self):
-        return f"x:{self.__coords['x']}, y:{self.__coords['y']}, z:{self.__coords['x']}"
+        return f"x:{self.__coords['x']}, y:{self.__coords['y']}, z:{self.__coords['z']}"
 
     def __repr__(self):
         return self.__coords
@@ -22,15 +23,15 @@ class Scanner(object):
     def get(self):
         return self.__coords
 
-    def start(self):
-        self.__scan()
+    def start(self, mutex):
+        self.__scan(mutex)
 
-    def __scan(self):
+    def __scan(self, mutex):
         while self.__status:
             try:
                 requests.get(url=self.__requests.page['url'], headers=self.__requests.page['headers'])
             except requests.exceptions.ConnectionError:
-                print('faced connection error, will retry in 10 seconds')
+                Logger.log_scan_error(self.__str__(), 'faced connection error, will retry in 10 seconds')
                 time.sleep(10)
                 continue
             for i in range(12):
@@ -38,19 +39,19 @@ class Scanner(object):
                     try:
                         data = requests.get(url=block['url'], headers=block['headers'])
                     except requests.exceptions.ConnectionError:
-                        print('faced API connection error, will retry in 10 seconds')
+                        Logger.log_scan_error(self.__str__(), 'faced API connection error, will retry in 10 seconds')
                         time.sleep(10)
                         continue
+                    Logger.log_ships(data.json()['data']['areaShips'], self.__str__())
                     useful_data = self.__convert(data.json())
                     for ship in useful_data:
-                        Queue.add(ship)
+                        Queue.add(ship, mutex)
                 time.sleep(10)
 
     @staticmethod
     def __convert(data):
         ship_data = []
         ships = data['data']
-        #print(ships['areaShips'])
         for ship in ships['rows']:
             ship_data.append(ship)
         return ship_data

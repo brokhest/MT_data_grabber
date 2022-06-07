@@ -3,6 +3,7 @@ import time
 from Queue import Queue
 from ShipMap import shipType_map, shipAttrs_map
 from DBHook import DBHook
+from Logger import Logger
 
 
 class Analyzer(object):
@@ -10,16 +11,16 @@ class Analyzer(object):
     def __init__(self):
         self.__status = True
 
-    def start(self):
-        self.__analyze()
+    def start(self, mutex):
+        self.__analyze(mutex)
 
     def stop(self):
         self.__status = False
 
-    def __analyze(self):
+    def __analyze(self, mutex):
         num = 0
         while self.__status:
-            ship = self.__grab()
+            ship = self.__grab(mutex)
             if ship is None:
                 continue
             num += 1
@@ -46,12 +47,12 @@ class Analyzer(object):
                     # print('record: ' + str(num))
 
     @staticmethod
-    def __grab():
+    def __grab(mutex):
         if Queue.is_empty():
+            Logger.log_analysis_wait()
             time.sleep(10)
-            print('Проснулся')
             return None
-        ship = Queue.take()
+        ship = Queue.take(mutex)
         return ship
 
     @staticmethod
@@ -73,9 +74,9 @@ class Analyzer(object):
         if ship['type'] in shipType_map:
             ship.update({'type': shipType_map[ship['type']]})
         else:
-            print('\nНОВЫЙ ТИП:')
-            print(ship)
-            ship.update({'type': "new"})
+            # print('\nНОВЫЙ ТИП:')
+            # print(ship)
+            ship.update({'type': "skip"})
         return ship
 
     @staticmethod

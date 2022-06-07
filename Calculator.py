@@ -1,4 +1,4 @@
-
+from ShipMap import api_offset_map
 
 class CoordinatesCalculator:
 
@@ -56,7 +56,7 @@ class CoordinatesCalculator:
                 start_x = num-1
                 x_found = True
             if not y_found and current_y > y_top:
-                start_y = num
+                start_y = num + api_offset_map[str(zoom)]
                 y_found = True
             if x_found and y_found:
                 break
