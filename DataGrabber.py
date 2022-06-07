@@ -1,6 +1,6 @@
 from Scanner import Scanner
 from Analysis_controller import AnalysisController
-from multiprocessing import Process
+from multiprocessing import Process, Lock
 from Calculator import CoordinatesCalculator
 from Logger import Logger
 
@@ -8,6 +8,11 @@ from Logger import Logger
 class DataGrabber:
     __scans = []
     __processes = []
+    __mutex = Lock()
+
+    @staticmethod
+    def get_mutex():
+        return DataGrabber.__mutex
 
     @staticmethod
     def get():
@@ -19,17 +24,17 @@ class DataGrabber:
         return response
 
     @staticmethod
-    def start_scan(coordinates, mutex):
+    def start_scan(coordinates):
         coordinates = CoordinatesCalculator.calculate(coordinates)
         new_scan = Scanner(coordinates['page'], coordinates['blocks'])
         Logger.log_scan_start(new_scan.__str__())
-        p = Process(target=Scanner.start, args=(new_scan, mutex))
+        p = Process(target=Scanner.start, args=(new_scan, DataGrabber.__mutex))
         p.start()
         # threading.Thread(target=new_scan.start).start()
         DataGrabber.__scans.append(new_scan)
         DataGrabber.__processes.append(p)
         AnalysisController.notify_started()
-        AnalysisController.start(mutex)
+        AnalysisController.start(DataGrabber.__mutex)
         return
 
     @staticmethod
@@ -39,6 +44,8 @@ class DataGrabber:
         DataGrabber.__processes[id].terminate()
         del DataGrabber.__scans[id]
         del DataGrabber.__processes[id]
+        if DataGrabber.__mutex.locked():
+            DataGrabber.__mutex.release()
         if len(DataGrabber.__scans) == 0:
             AnalysisController.notify_ended()
 

@@ -26,7 +26,7 @@ class Logger:
 
     @staticmethod
     def log_file_error(error_type):
-        Logger.__log(f'Faced na error: {error_type}, while trying to access raw data')
+        Logger.__log(f'Faced an error: {error_type}, while trying to access raw data')
 
     @staticmethod
     def log_analysis_start():
