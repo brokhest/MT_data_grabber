@@ -1,7 +1,7 @@
 from Scanner import Scanner
-import threading
 from analysis_controller import AnalysisController
 from multiprocessing import Process
+from Calculator import CoordinatesCalculator
 
 
 class DataGrabber:
@@ -18,8 +18,9 @@ class DataGrabber:
         return response
 
     @staticmethod
-    def start_scan(page, blocks):
-        new_scan = Scanner(page, blocks)
+    def start_scan(coordinates):
+        coordinates = CoordinatesCalculator.calculate(coordinates)
+        new_scan = Scanner(coordinates['page'], coordinates['blocks'])
         p = Process(target=new_scan.start)
         p.start()
         # threading.Thread(target=new_scan.start).start()

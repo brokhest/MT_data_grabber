@@ -5,27 +5,29 @@ if __name__ == "__main__":
     area = []
     top = {
         "x": {
-            "degree": 117,
-            "minute": 40,
-            "second": 30
+            "degree": 131,
+            "minute": 49,
+            "second": 54
         },
         "y": {
-            "degree": -39,
-            "minute": 10,
-            "second": 14
+            "degree": 43,
+            "minute": 7,
+            "second": 23,
+            'hemisphere': 'n'
         }
     }
     area.append(top)
     bot = {
         "x": {
-            "degree": 120,
-            "minute": 18,
-            "second": 21
+            "degree": 131,
+            "minute": 57,
+            "second": 30
         },
         "y": {
-            "degree": -37,
-            "minute": 48,
-            "second": 12
+            "degree": 43,
+            "minute": 2,
+            "second": 57,
+            'hemisphere': 'n'
         }
     }
     area.append(bot)

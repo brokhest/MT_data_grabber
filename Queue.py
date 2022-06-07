@@ -5,7 +5,6 @@ import pathlib
 
 mutex = Lock()
 
-
 directory = pathlib.Path().resolve()
 
 
@@ -27,9 +26,16 @@ class Queue:
             with open(Queue.__file_name, 'r') as f:
                 data = f.read().splitlines(True)
                 ship = data[0]
-            with open(Queue.__file_name, "w") as f:
-                f.writelines(data[1:])
-                f.truncate()
+                f.close()
+            try:
+                with open(Queue.__file_name, "w") as f:
+                    f.writelines(data[1:])
+                    f.truncate()
+                    f.close()
+            except FileNotFoundError:
+                print('file not found')
+            except OSError:
+                print('osError')
             mutex.release()
             try:
                 answer = json.loads(ship)
@@ -42,6 +48,6 @@ class Queue:
 
     @staticmethod
     def is_empty():
-        return os.path.isfile(os.path.abspath(Queue.__file_name)) and \
-               os.path.getsize(os.path.abspath(Queue.__file_name)) == 0
-
+        if not os.path.isfile(os.path.abspath(Queue.__file_name)):
+            return True
+        return os.path.getsize(os.path.abspath(Queue.__file_name)) == 0

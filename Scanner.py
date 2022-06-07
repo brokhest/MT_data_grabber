@@ -50,6 +50,7 @@ class Scanner(object):
     def __convert(data):
         ship_data = []
         ships = data['data']
+        #print(ships['areaShips'])
         for ship in ships['rows']:
             ship_data.append(ship)
         return ship_data

@@ -27,3 +27,9 @@ shipAttrs_map = {
     "SHIPTYPE": "type"
 
 }
+
+
+zoom_rectangles_map = {
+    "13": 245.76,
+    "17": 262.144
+}
