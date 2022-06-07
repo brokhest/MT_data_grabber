@@ -23,7 +23,7 @@ class CoordinatesCalculator:
         y_top = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['y'])
         y_bot = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[1]['y'])
         x_size = (x_top - x_bot)/4
-        y_size = (y_top - y_bot)/2
+        y_size = (y_top - y_bot)/3
         return {"x": abs(round(x_size, 3)), "y": round(y_size, 3)}
 
     @staticmethod
@@ -51,7 +51,6 @@ class CoordinatesCalculator:
         for i in range(-rect_num//2, rect_num//2, 1):
             num += 1
             current_x = rect_x*i
-            #current_y = 117.5 - rect_y*i
             current_y = rect_y*i
             if not x_found and current_x > x_top:
                 start_x = num-1

@@ -26,6 +26,7 @@ class DataGrabber:
         # threading.Thread(target=new_scan.start).start()
         DataGrabber.__scans.append(new_scan)
         DataGrabber.__processes.append(p)
+        AnalysisController.notify_started()
         AnalysisController.start()
         return
 
@@ -36,5 +37,5 @@ class DataGrabber:
         del DataGrabber.__scans[id]
         del DataGrabber.__processes[id]
         if len(DataGrabber.__scans) == 0:
-            AnalysisController.notify()
+            AnalysisController.notify_ended()
 

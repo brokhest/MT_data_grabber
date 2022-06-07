@@ -8,7 +8,7 @@ import threading
 
 class AnalysisController:
     __analyzers = []
-    __has_scanners = True
+    __has_scanners = False
     __in_work = False
     __processes = []
     __empty = False
@@ -18,7 +18,6 @@ class AnalysisController:
         if AnalysisController.__in_work:
             return
         AnalysisController.__in_work = True
-        AnalysisController.__has_scanners = True
         analysis = Analyzer()
         AnalysisController.__analyzers.append(analysis)
         AnalysisController.__start_analysis()
@@ -53,7 +52,11 @@ class AnalysisController:
         return
 
     @staticmethod
-    def notify():
+    def notify_ended():
         AnalysisController.__has_scanners = False
+
+    @staticmethod
+    def notify_started():
+        AnalysisController.__has_scanners = True
 
 

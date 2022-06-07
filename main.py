@@ -2,6 +2,7 @@ import threading
 import time
 from DataGrabber import DataGrabber
 from Calculator import CoordinatesCalculator
+from analysis_controller import AnalysisController
 
 
 if __name__ == "__main__":
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     }
     area.append(bot)
     #location = CoordinatesCalculator.calculate(area)
-    print(CoordinatesCalculator.calculate(area))
+    #print(CoordinatesCalculator.calculate(area))
     #DataGrabber.start_scan(area)
     area = []
     top = {
@@ -62,13 +63,13 @@ if __name__ == "__main__":
         }
     }
     area.append(bot)
-    print(CoordinatesCalculator.calculate(area))
+    #print(CoordinatesCalculator.calculate(area))
     #location = CoordinatesCalculator.calculate(area)
     #DataGrabber.start_scan(area)
     # DataGrabber.start_scan(location['page'], location['blocks'])
     #time.sleep(60)
     print("stopping")
-    #DataGrabber.stop_scan(0)
+   # DataGrabber.stop_scan(0)
     #time.sleep(60)
     print('stop')
     #DataGrabber.stop_scan(0)
@@ -103,6 +104,8 @@ if __name__ == "__main__":
     #DataGrabber.start_scan(area)
     #time.sleep(10)
     #DataGrabber.stop_scan(0)
+    AnalysisController.start()
+
 
 
 
