@@ -31,3 +31,28 @@
 2022-06-18 19:34:03.779123: Faced an error: OSError, while trying to access raw data
 2022-06-18 19:34:04.408268: Faced an error: OSError, while trying to access raw data
 2022-06-18 19:34:52.228866: Stopped analysis
+2022-06-23 01:11:36.132663: Started scan at x:131.895, y:43.086, z:12
+2022-06-23 01:11:36.160635: Started raw data analysis
+2022-06-23 01:11:36.206644: Started scan at x:118.99, y:38.487, z:8
+2022-06-23 01:11:36.849092: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 01:11:36.849092: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 01:11:36.849092: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 01:11:37.691658: Scan at x:131.895, y:43.086, z:12 got 114 ships
+2022-06-23 01:11:37.855331: Scan at x:118.99, y:38.487, z:8 got 112 ships
+2022-06-23 01:11:38.228264: Scan at x:131.895, y:43.086, z:12 got 23 ships
+2022-06-23 01:11:38.432224: Scan at x:118.99, y:38.487, z:8 got 23 ships
+2022-06-23 01:11:40.066158: Scan at x:131.895, y:43.086, z:12 got 1 ships
+2022-06-23 01:11:40.587266: Scan at x:131.895, y:43.086, z:12 got 2 ships
+2022-06-23 01:11:41.248224: Scan at x:131.895, y:43.086, z:12 got 5 ships
+2022-06-23 01:11:41.926266: Scan at x:131.895, y:43.086, z:12 got 5 ships
+2022-06-23 01:11:42.426620: Scan at x:131.895, y:43.086, z:12 got 0 ships
+2022-06-23 01:11:42.961338: Scan at x:131.895, y:43.086, z:12 got 2 ships
+2022-06-23 01:11:44.748754: Scan at x:118.99, y:38.487, z:8 got 1 ships
+2022-06-23 01:11:45.286243: Scan at x:118.99, y:38.487, z:8 got 2 ships
+2022-06-23 01:11:45.771048: Scan at x:118.99, y:38.487, z:8 got 5 ships
+2022-06-23 01:11:46.232224: Stopped scan at x:131.895, y:43.086, z:12
+2022-06-23 01:11:46.233224: Stopped scan at x:118.99, y:38.487, z:8
+2022-06-23 01:11:47.213861: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 01:11:47.213861: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 01:11:47.223559: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 01:11:56.212229: Stopped analysis

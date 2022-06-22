@@ -4,6 +4,7 @@ from Queue import Queue
 from ShipMap import shipType_map, shipAttrs_map
 from DBHook import DBHook
 from Logger import Logger
+# from Input_db import Input_db
 
 
 class Analyzer(object):
@@ -34,15 +35,20 @@ class Analyzer(object):
             if ship['name'] == '[SAT-AIS]':
                 if relevance == 0:
                     DBHook.add_ais(ship)
+                    Analyzer.__send(ship)
                 elif relevance == 1:
                     DBHook.update_ais(ship)
+                    Analyzer.__send(ship)
             else:
                 if relevance == 0:
                     DBHook.add(ship)
+                    Analyzer.__send(ship)
                     # print('record: ' + str(num))
                 elif relevance == 1:
                     DBHook.update(ship)
+                    Analyzer.__send(ship)
                     # print('record: ' + str(num))
+
 
     @staticmethod
     def __grab(mutex):
@@ -161,3 +167,49 @@ class Analyzer(object):
             return 1
         else:
             return 2
+
+    @staticmethod
+    def __send(ship):
+        data = Analyzer.__convert_to_db_format(ship)
+        #Input_db.input_for_base(data)
+        print(data)
+        return
+
+    @staticmethod
+    def __convert_to_db_format(ship):
+        data = {}
+        if ship['name'] == '[SAT-AIS]':
+            data.update({'ship': None})
+            record = {
+                'id': ship['id'],
+                'latitude': ship['latitude'],
+                'longitude': ship['longitude'],
+                'speed': ship['speed'],
+                'course': ship['course'],
+                'heading': ship['heading'],
+                'type': ship['type']
+            }
+            data.update({'mark': record})
+        else:
+            record = {
+                'id': ship['id'],
+                'flag': ship['flag'],
+                'length': ship['length'],
+                'width': ship['width'],
+                'name': ship['name'],
+                'type': ship['type'],
+            }
+            data.update({'ship': record})
+            record = {
+                'latitude': ship['latitude'],
+                'longitude': ship['longitude'],
+                'speed': ship['speed'],
+                'course': ship['course'],
+                'heading': ship['heading'],
+                'destination': ship['destination'],
+                'deadweight': ship['deadweight']
+            }
+            data.update({'mark': record})
+        return data
+
+

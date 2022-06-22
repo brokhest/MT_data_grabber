@@ -73,7 +73,7 @@ if __name__ == "__main__":
     DataGrabber.start_scan(area)
     # DataGrabber.start_scan(location['page'], location['blocks'])
     print(DataGrabber.get())
-    time.sleep(10)
+    time.sleep(60)
     print("stopping")
     DataGrabber.stop_scan(0)
     DataGrabber.stop_scan(0)
