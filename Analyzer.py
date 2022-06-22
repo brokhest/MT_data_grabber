@@ -24,8 +24,6 @@ class Analyzer(object):
             if ship is None:
                 continue
             num += 1
-            if ship is None:
-                continue
             ship = self.__refine(ship)
             if ship is None:
                 continue

@@ -1,5 +1,5 @@
 import time
-from Requests import Requests
+from Request import Request
 import requests
 from Queue import Queue
 from Logger import Logger
@@ -9,7 +9,7 @@ class Scanner(object):
 
     def __init__(self, page, blocks):
         self.__status = True
-        self.__requests = Requests(page, blocks)
+        self.__requests = Request(page, blocks)
         self.__coords = page
         self.__test = self.__requests.api
         # self.start()

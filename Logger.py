@@ -46,5 +46,3 @@ class Logger:
             log = f'{datetime.now()}: {message}\n'
             f.write(log)
             f.close()
-
-

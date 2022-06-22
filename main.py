@@ -38,6 +38,9 @@ if __name__ == "__main__":
     #location = CoordinatesCalculator.calculate(area)
     #print(CoordinatesCalculator.calculate(area))
     DataGrabber.start_scan(area)
+    #DataGrabber.start_scan(area)
+    #print(DataGrabber.get())
+    #DataGrabber.stop_scan(0)
     area = []
     top = {
         "x": {
@@ -69,8 +72,9 @@ if __name__ == "__main__":
     #location = CoordinatesCalculator.calculate(area)
     DataGrabber.start_scan(area)
     # DataGrabber.start_scan(location['page'], location['blocks'])
-    time.sleep(600)
-    #print("stopping")
+    print(DataGrabber.get())
+    time.sleep(10)
+    print("stopping")
     DataGrabber.stop_scan(0)
     DataGrabber.stop_scan(0)
     #time.sleep(60)

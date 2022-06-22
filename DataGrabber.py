@@ -26,6 +26,9 @@ class DataGrabber:
     @staticmethod
     def start_scan(coordinates):
         coordinates = CoordinatesCalculator.calculate(coordinates)
+        for scan in DataGrabber.__scans:
+            if scan.get() == coordinates['page']:
+                return False
         new_scan = Scanner(coordinates['page'], coordinates['blocks'])
         Logger.log_scan_start(new_scan.__str__())
         p = Process(target=Scanner.start, args=(new_scan, DataGrabber.__mutex))
@@ -35,7 +38,7 @@ class DataGrabber:
         DataGrabber.__processes.append(p)
         AnalysisController.notify_started()
         AnalysisController.start(DataGrabber.__mutex)
-        return
+        return True
 
     @staticmethod
     def stop_scan(id):
@@ -44,8 +47,5 @@ class DataGrabber:
         DataGrabber.__processes[id].terminate()
         del DataGrabber.__scans[id]
         del DataGrabber.__processes[id]
-        if DataGrabber.__mutex.locked():
-            DataGrabber.__mutex.release()
         if len(DataGrabber.__scans) == 0:
             AnalysisController.notify_ended()
-

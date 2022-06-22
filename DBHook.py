@@ -129,7 +129,7 @@ class DBHook:
             speed=ship['speed'],
             course=ship['course'],
             heading=ship['heading'],
-            type= ship['type']
+            type=ship['type']
         )
         return entry
 
@@ -174,8 +174,6 @@ class DBHook:
         model.course = ship['course'],
         model.heading = ship['heading'],
         model.destination = ship['destination'],
-        model.length = ship['length'],
-        model.width = ship['width'],
         model.rotation = ship['rotation'],
         model.deadweight = ship['deadweight']
         return model
@@ -192,5 +190,3 @@ class DBHook:
     @staticmethod
     def __exists():
         return os.path.isfile(os.path.abspath("relevant_data.db"))
-
-

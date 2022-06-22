@@ -1,4 +1,3 @@
-import threading
 import time
 from multiprocessing import Process
 from Queue import Queue
@@ -19,7 +18,7 @@ class AnalysisController:
         if AnalysisController.__in_work:
             return
         AnalysisController.__in_work = True
-        for i in range (3):
+        for i in range(3):
             analysis = Analyzer()
             AnalysisController.__analyzers.append(analysis)
         Logger.log_analysis_start()
@@ -50,8 +49,12 @@ class AnalysisController:
         Logger.log_analysis_stop()
         for analysis in AnalysisController.__analyzers:
             analysis.stop()
+        while len(AnalysisController.__analyzers) > 0:
+            del(AnalysisController.__analyzers[0])
         for process in AnalysisController.__processes:
             process.terminate()
+        while len(AnalysisController.__processes) > 0:
+            del(AnalysisController.__processes[0])
         return
 
     @staticmethod
@@ -61,5 +64,3 @@ class AnalysisController:
     @staticmethod
     def notify_started():
         AnalysisController.__has_scanners = True
-
-

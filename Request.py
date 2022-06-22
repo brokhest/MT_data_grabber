@@ -1,6 +1,6 @@
 
 
-class Requests(object):
+class Request(object):
     page = ""
     api = []
 
@@ -20,7 +20,8 @@ class Requests(object):
             "headers": headers
         }
         for block in blocks:
-            api_url = f'https://www.marinetraffic.com/getData/get_data_json_4/z:{block["z"]}/X:{block["x"]}/Y:{block["y"]}/station:0'
+            api_url = f'https://www.marinetraffic.com/getData/get_data_json_4' \
+                      f'/z:{block["z"]}/X:{block["x"]}/Y:{block["y"]}/station:0'
             self.api.append({
                 "url": api_url,
                 "headers": headers

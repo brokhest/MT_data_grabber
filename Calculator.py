@@ -1,5 +1,6 @@
 from ShipMap import api_offset_map
 
+
 class CoordinatesCalculator:
 
     @staticmethod
@@ -106,7 +107,7 @@ class CoordinatesCalculator:
     @staticmethod
     def __prepare_response(center, rectangles, zoom):
         response = {
-            "page":{
+            "page": {
                 "x": center['x'],
                 'y': center['y'],
                 'z': zoom
@@ -114,6 +115,3 @@ class CoordinatesCalculator:
             "blocks": rectangles
         }
         return response
-
-
-
