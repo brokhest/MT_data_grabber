@@ -41,6 +41,10 @@ class Logger:
         Logger.__log('Analyzer fell asleep. Cause: empty file \'raw_data\'')
 
     @staticmethod
+    def log_db_error():
+        Logger.__log('Faced an error while writing to db, skipping')
+
+    @staticmethod
     def __log(message):
         with open(Logger.__filename, 'a') as f:
             log = f'{datetime.now()}: {message}\n'

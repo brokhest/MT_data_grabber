@@ -1,3 +1,4 @@
+import json
 import time
 
 from Queue import Queue
@@ -29,23 +30,26 @@ class Analyzer(object):
             if ship is None:
                 continue
             if not self.__validate(ship):
-                print(ship)
                 continue
             relevance = self.__is_relevant(ship)
             if ship['name'] == '[SAT-AIS]':
                 if relevance == 0:
-                    DBHook.add_ais(ship)
+                    if not DBHook.add_ais(ship):
+                        continue
                     Analyzer.__send(ship)
                 elif relevance == 1:
-                    DBHook.update_ais(ship)
+                    if not DBHook.update_ais(ship):
+                        continue
                     Analyzer.__send(ship)
             else:
                 if relevance == 0:
-                    DBHook.add(ship)
+                    if not DBHook.add(ship):
+                        continue
                     Analyzer.__send(ship)
                     # print('record: ' + str(num))
                 elif relevance == 1:
-                    DBHook.update(ship)
+                    if not DBHook.update(ship):
+                        continue
                     Analyzer.__send(ship)
                     # print('record: ' + str(num))
 
@@ -61,9 +65,9 @@ class Analyzer(object):
 
     @staticmethod
     def __refine(ship):
-        if 'name' not in ship:
+        if 'SHIPNAME' not in ship:
             return None
-        if ship['name'] == '[SAT-AIS]':
+        if ship['SHIPNAME'] == '[SAT-AIS]':
             ship = Analyzer.__refine_ais(ship)
             return ship
         if 'ELAPSED' in ship:
@@ -172,7 +176,15 @@ class Analyzer(object):
     def __send(ship):
         data = Analyzer.__convert_to_db_format(ship)
         #Input_db.input_for_base(data)
-        print(data)
+        Analyzer.__test(ship)
+        return
+
+    @staticmethod
+    def __test(ship):
+        f = open('test.txt', 'a')
+        f.write(json.dumps(ship))
+        f.write('\n')
+        f.close()
         return
 
     @staticmethod

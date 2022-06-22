@@ -18,7 +18,7 @@ class AnalysisController:
         if AnalysisController.__in_work:
             return
         AnalysisController.__in_work = True
-        for i in range(3):
+        for i in range(1):
             analysis = Analyzer()
             AnalysisController.__analyzers.append(analysis)
         Logger.log_analysis_start()

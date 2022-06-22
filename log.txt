@@ -1,58 +1,164 @@
-2022-06-18 19:33:52.150501: Started scan at x:131.895, y:43.086, z:12
-2022-06-18 19:33:52.166504: Started raw data analysis
-2022-06-18 19:33:52.205512: Started scan at x:118.99, y:38.487, z:8
-2022-06-18 19:33:52.622607: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-18 19:33:52.639611: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-18 19:33:52.644612: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-18 19:33:53.411132: Scan at x:131.895, y:43.086, z:12 got 132 ships
-2022-06-18 19:33:53.755533: Scan at x:118.99, y:38.487, z:8 got 132 ships
-2022-06-18 19:33:53.876529: Scan at x:131.895, y:43.086, z:12 got 34 ships
-2022-06-18 19:33:54.165266: Scan at x:118.99, y:38.487, z:8 got 34 ships
-2022-06-18 19:33:54.279062: Scan at x:131.895, y:43.086, z:12 got 3 ships
-2022-06-18 19:33:54.569072: Scan at x:118.99, y:38.487, z:8 got 3 ships
-2022-06-18 19:33:54.675059: Scan at x:131.895, y:43.086, z:12 got 5 ships
-2022-06-18 19:33:54.979055: Scan at x:118.99, y:38.487, z:8 got 5 ships
-2022-06-18 19:33:55.070297: Scan at x:131.895, y:43.086, z:12 got 6 ships
-2022-06-18 19:33:55.451073: Scan at x:131.895, y:43.086, z:12 got 5 ships
-2022-06-18 19:33:55.689056: Scan at x:118.99, y:38.487, z:8 got 6 ships
-2022-06-18 19:33:55.842369: Scan at x:131.895, y:43.086, z:12 got 0 ships
-2022-06-18 19:33:56.085116: Scan at x:118.99, y:38.487, z:8 got 5 ships
-2022-06-18 19:33:56.232244: Scan at x:131.895, y:43.086, z:12 got 0 ships
-2022-06-18 19:33:56.478455: Scan at x:118.99, y:38.487, z:8 got 0 ships
-2022-06-18 19:33:56.869570: Scan at x:118.99, y:38.487, z:8 got 0 ships
-2022-06-18 19:33:57.521459: Scan at x:118.99, y:38.487, z:8 got 1241 ships
-2022-06-18 19:33:58.661480: Scan at x:118.99, y:38.487, z:8 got 2029 ships
-2022-06-18 19:33:59.609540: Scan at x:118.99, y:38.487, z:8 got 1163 ships
-2022-06-18 19:34:00.657365: Scan at x:118.99, y:38.487, z:8 got 1359 ships
-2022-06-18 19:34:01.335644: Scan at x:118.99, y:38.487, z:8 got 34 ships
-2022-06-18 19:34:02.120232: Scan at x:118.99, y:38.487, z:8 got 742 ships
-2022-06-18 19:34:02.233763: Stopped scan at x:131.895, y:43.086, z:12
-2022-06-18 19:34:02.233763: Stopped scan at x:118.99, y:38.487, z:8
-2022-06-18 19:34:03.779123: Faced an error: OSError, while trying to access raw data
-2022-06-18 19:34:04.408268: Faced an error: OSError, while trying to access raw data
-2022-06-18 19:34:52.228866: Stopped analysis
-2022-06-23 01:11:36.132663: Started scan at x:131.895, y:43.086, z:12
-2022-06-23 01:11:36.160635: Started raw data analysis
-2022-06-23 01:11:36.206644: Started scan at x:118.99, y:38.487, z:8
-2022-06-23 01:11:36.849092: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-23 01:11:36.849092: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-23 01:11:36.849092: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-23 01:11:37.691658: Scan at x:131.895, y:43.086, z:12 got 114 ships
-2022-06-23 01:11:37.855331: Scan at x:118.99, y:38.487, z:8 got 112 ships
-2022-06-23 01:11:38.228264: Scan at x:131.895, y:43.086, z:12 got 23 ships
-2022-06-23 01:11:38.432224: Scan at x:118.99, y:38.487, z:8 got 23 ships
-2022-06-23 01:11:40.066158: Scan at x:131.895, y:43.086, z:12 got 1 ships
-2022-06-23 01:11:40.587266: Scan at x:131.895, y:43.086, z:12 got 2 ships
-2022-06-23 01:11:41.248224: Scan at x:131.895, y:43.086, z:12 got 5 ships
-2022-06-23 01:11:41.926266: Scan at x:131.895, y:43.086, z:12 got 5 ships
-2022-06-23 01:11:42.426620: Scan at x:131.895, y:43.086, z:12 got 0 ships
-2022-06-23 01:11:42.961338: Scan at x:131.895, y:43.086, z:12 got 2 ships
-2022-06-23 01:11:44.748754: Scan at x:118.99, y:38.487, z:8 got 1 ships
-2022-06-23 01:11:45.286243: Scan at x:118.99, y:38.487, z:8 got 2 ships
-2022-06-23 01:11:45.771048: Scan at x:118.99, y:38.487, z:8 got 5 ships
-2022-06-23 01:11:46.232224: Stopped scan at x:131.895, y:43.086, z:12
-2022-06-23 01:11:46.233224: Stopped scan at x:118.99, y:38.487, z:8
-2022-06-23 01:11:47.213861: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-23 01:11:47.213861: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-23 01:11:47.223559: Analyzer fell asleep. Cause: empty file 'raw_data'
-2022-06-23 01:11:56.212229: Stopped analysis
+2022-06-23 03:15:38.439903: Started scan at x:131.895, y:43.086, z:12
+2022-06-23 03:15:38.455906: Started raw data analysis
+2022-06-23 03:15:38.864999: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 03:15:39.827661: Scan at x:131.895, y:43.086, z:12 got 110 ships
+2022-06-23 03:15:40.405136: Scan at x:131.895, y:43.086, z:12 got 20 ships
+2022-06-23 03:15:41.008628: Scan at x:131.895, y:43.086, z:12 got 1 ships
+2022-06-23 03:15:41.653633: Scan at x:131.895, y:43.086, z:12 got 1 ships
+2022-06-23 03:15:42.182839: Scan at x:131.895, y:43.086, z:12 got 8 ships
+2022-06-23 03:15:42.782647: Scan at x:131.895, y:43.086, z:12 got 7 ships
+2022-06-23 03:15:43.340897: Scan at x:131.895, y:43.086, z:12 got 0 ships
+2022-06-23 03:15:43.866662: Scan at x:131.895, y:43.086, z:12 got 2 ships
+2022-06-23 03:15:54.387925: Scan at x:131.895, y:43.086, z:12 got 110 ships
+2022-06-23 03:15:54.947650: Scan at x:131.895, y:43.086, z:12 got 20 ships
+2022-06-23 03:15:55.553915: Scan at x:131.895, y:43.086, z:12 got 1 ships
+2022-06-23 03:15:56.033100: Scan at x:131.895, y:43.086, z:12 got 1 ships
+2022-06-23 03:16:03.340139: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.455840: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.458841: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.461842: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.464842: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.466843: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.595650: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.602651: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.722681: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.725682: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.830911: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.833912: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.836914: Faced an error while writing to db, skipping
+2022-06-23 03:16:03.947682: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.663650: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.665651: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.668651: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.671652: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.674653: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.676654: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.678654: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.681654: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.684655: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.686655: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.688656: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.691657: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.694657: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.696658: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.699658: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.701659: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.711661: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.714662: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.716662: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.719663: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.721664: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.724664: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.726665: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.728665: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.731666: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.733666: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.736667: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.738667: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.741668: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.743668: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.745669: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.748669: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.750670: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.753671: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.756672: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.758672: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.760672: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.763673: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.765673: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.767674: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.770674: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.772675: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.774676: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.776677: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.779677: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.781677: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.783677: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.785678: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.788679: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.790679: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.792679: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.794680: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.796681: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.799681: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.801682: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.803682: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.805682: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.807683: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.810684: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.812684: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.814685: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.816685: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.818685: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.821686: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.823687: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.825687: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.827688: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.829688: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.831689: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.833689: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.836690: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.838690: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.840690: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.843692: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.845691: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.847692: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.849692: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.851693: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.854694: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.856694: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.858695: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.860695: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.862695: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.864696: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.867697: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.869697: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.871698: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.873698: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.875698: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.877699: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.879699: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.882700: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.884700: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.886701: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.888701: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.890702: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.892702: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.894703: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.896703: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.898703: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.901705: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.903705: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.905705: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.907706: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.909706: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.911707: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.913707: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.915707: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.917708: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.919708: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.921709: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.923709: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.925709: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.927710: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.929710: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.931711: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.933712: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.935712: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.937712: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.939713: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.941713: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.943714: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.945714: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.947714: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.949715: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.951715: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.953716: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.955716: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.957717: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.959717: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.961718: Faced an error while writing to db, skipping
+2022-06-23 03:16:06.961718: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 03:16:08.472676: Stopped scan at x:131.895, y:43.086, z:12
+2022-06-23 03:16:16.965889: Analyzer fell asleep. Cause: empty file 'raw_data'
+2022-06-23 03:16:18.482075: Stopped analysis

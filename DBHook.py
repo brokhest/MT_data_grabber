@@ -1,7 +1,10 @@
 import os
+
+import sqlalchemy.exc
 from sqlalchemy import create_engine, Column, INTEGER, REAL, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session
+from Logger import Logger
 
 Base = declarative_base()
 
@@ -70,35 +73,57 @@ class DBHook:
         session = Session(bind=engine)
         ship = DBHook.__convert_to_model(ship)
         session.add(ship)
-        session.commit()
-        session.close()
-        return
+        if DBHook.__commit(session):
+            session.close()
+            return True
+        else:
+            session.close()
+            return False
 
     @staticmethod
     def add_ais(ship):
         session = Session(bind=engine)
         ship = DBHook.__convert_to_model_ais(ship)
         session.add(ship)
-        session.commit()
-        session.close()
-        return
+        if DBHook.__commit(session):
+            session.close()
+            return True
+        else:
+            session.close()
+            return False
 
     @staticmethod
     def update(ship):
         session = Session(bind=engine)
         model = session.query(Vessel).get(ship['id'])
         DBHook.__update_model(ship, model)
-        session.commit()
-        session.close()
-        return
+        if DBHook.__commit(session):
+            session.close()
+            return True
+        else:
+            session.close()
+            return False
 
     @staticmethod
     def update_ais(ship):
         session = Session(bind=engine)
         model = session.query(SATAIS).get(ship['id'])
-        DBHook.__update_model(ship, model)
-        session.commit()
-        session.close()
+        DBHook.__update_model_ais(ship, model)
+        if DBHook.__commit(session):
+            session.close()
+            return True
+        else:
+            session.close()
+            return False
+
+    @staticmethod
+    def __commit(session):
+        try:
+            session.commit()
+            return True
+        except sqlalchemy.exc.StatementError:
+            Logger.log_db_error()
+            return False
 
     @staticmethod
     def __convert_to_model(ship):
@@ -168,8 +193,8 @@ class DBHook:
 
     @staticmethod
     def __update_model(ship, model):
-        model.latitude = ship['latitude'],
-        model.longitude = ship['longitude'],
+        model.latitude = float(ship['latitude']),
+        model.longitude = float(ship['longitude']),
         model.speed = ship['speed'],
         model.course = ship['course'],
         model.heading = ship['heading'],
@@ -180,8 +205,8 @@ class DBHook:
 
     @staticmethod
     def __update_model_ais(ship, model):
-        model.latitude = ship['latitude'],
-        model.longitude = ship['longitude'],
+        model.latitude = float(ship['latitude']),
+        model.longitude = float(ship['longitude']),
         model.speed = ship['speed'],
         model.course = ship['course'],
         model.heading = ship['heading'],
