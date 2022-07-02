@@ -158,9 +158,17 @@ class Analyzer(object):
         if record is None:
             return 0
         for k, v in ship.items():
-            if not v == record[k]:
-                return 2
-        return 1
+            if k == 'latitude' or k == 'longitude':
+                if round(float(v), 5) != round(float(record[k]), 5):
+                    # print(k)
+                    # print(' data: ' + str(v) + ' record:' + str(record[k]))
+                    return 1
+            # else:
+            #     if v != record[k]:
+            #         print(k)
+            #         print(' data: '+ str(v) +' record:' + str(record[k]))
+            #         return 1
+        return 2
 
 
         # elif not ship == record:
@@ -175,9 +183,12 @@ class Analyzer(object):
         if record is None:
             return 0
         for k, v in ship.items():
-            if not v == record[k]:
-                return 2
-        return 1
+            if k == 'latitude' or k == 'longitude':
+                if round(float(v), 5) != round(float(record[k]), 5):
+                    # print(k)
+                    # print(' data: ' + str(v) + ' record:' + str(record[k]))
+                    return 1
+        return 2
 
     @staticmethod
     def __send(ship):
