@@ -157,20 +157,27 @@ class Analyzer(object):
         record = DBHook.get(ship['id'])
         if record is None:
             return 0
-        elif not ship == record:
-            return 1
-        else:
-            return 2
+        for k, v in ship.items():
+            if not v == record[k]:
+                return 2
+        return 1
+
+
+        # elif not ship == record:
+        #     return 1
+        # else:
+        #     return 2
 
     @staticmethod
     def __is_relevant_ais(ship):
         record = DBHook.get_ais(ship['id'])
+
         if record is None:
             return 0
-        elif not ship == record:
-            return 1
-        else:
-            return 2
+        for k, v in ship.items():
+            if not v == record[k]:
+                return 2
+        return 1
 
     @staticmethod
     def __send(ship):
