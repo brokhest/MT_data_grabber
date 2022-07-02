@@ -109,6 +109,7 @@ class DBHook:
         session = Session(bind=engine)
         model = session.query(SATAIS).get(ship['id'])
         DBHook.__update_model_ais(ship, model)
+        session.add(model)
         if DBHook.__commit(session):
             session.close()
             return True
@@ -121,7 +122,7 @@ class DBHook:
         try:
             session.commit()
             return True
-        except sqlalchemy.exc.StatementError:
+        except sqlalchemy.exc.StatementError as e:
             Logger.log_db_error()
             return False
 
@@ -193,23 +194,23 @@ class DBHook:
 
     @staticmethod
     def __update_model(ship, model):
-        model.latitude = float(ship['latitude']),
-        model.longitude = float(ship['longitude']),
-        model.speed = ship['speed'],
-        model.course = ship['course'],
-        model.heading = ship['heading'],
-        model.destination = ship['destination'],
-        model.rotation = ship['rotation'],
-        model.deadweight = ship['deadweight']
+        setattr(model, 'latitude', ship['latitude'])
+        setattr(model, 'longitude', ship['longitude'])
+        setattr(model, 'speed', ship['speed'])
+        setattr(model, 'course', ship['course'])
+        setattr(model, 'heading', ship['heading'])
+        setattr(model, 'destination', ship['destination'])
+        setattr(model, 'rotation', ship['rotation'])
+        setattr(model, "deadweight", ship['deadweight'])
         return model
 
     @staticmethod
     def __update_model_ais(ship, model):
-        model.latitude = float(ship['latitude']),
-        model.longitude = float(ship['longitude']),
-        model.speed = ship['speed'],
-        model.course = ship['course'],
-        model.heading = ship['heading'],
+        setattr(model, 'latitude', ship['latitude'])
+        setattr(model, 'longitude', ship['longitude'])
+        setattr(model, 'speed', ship['speed'])
+        setattr(model, 'course', ship['course'])
+        setattr(model, 'heading', ship['heading'])
         return model
 
     @staticmethod

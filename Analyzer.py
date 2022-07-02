@@ -176,7 +176,7 @@ class Analyzer(object):
     def __send(ship):
         data = Analyzer.__convert_to_db_format(ship)
         #Input_db.input_for_base(data)
-        Analyzer.__test(ship)
+        Analyzer.__test(data)
         return
 
     @staticmethod

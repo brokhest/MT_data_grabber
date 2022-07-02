@@ -29,7 +29,13 @@ class Scanner(object):
     def __scan(self, mutex):
         while self.__status:
             try:
-                requests.get(url=self.__requests.page['url'], headers=self.__requests.page['headers'])
+                page = requests.get(url=self.__requests.page['url'], headers=self.__requests.page['headers'])
+                if not page.status_code == 200:
+                    Logger.log_scan_error(self.__str__(), 'faced connection error, will retry in 10 seconds')
+                    time.sleep(10)
+                    continue
+                # print(self.__requests.page)
+                # print(self.__test)
             except requests.exceptions.ConnectionError:
                 Logger.log_scan_error(self.__str__(), 'faced connection error, will retry in 10 seconds')
                 time.sleep(10)
@@ -38,6 +44,10 @@ class Scanner(object):
                 for block in self.__test:
                     try:
                         data = requests.get(url=block['url'], headers=block['headers'])
+                        if not data.status_code == 200:
+                            Logger.log_scan_error(self.__str__(), 'faced API connection error, will retry in 10 seconds')
+                            time.sleep(10)
+                            continue
                     except requests.exceptions.ConnectionError:
                         Logger.log_scan_error(self.__str__(), 'faced API connection error, will retry in 10 seconds')
                         time.sleep(10)

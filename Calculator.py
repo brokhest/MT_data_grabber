@@ -19,10 +19,10 @@ class CoordinatesCalculator:
 
     @staticmethod
     def __calculate_rectangle_size(coordinates):
-        x_top = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['x'])
-        x_bot = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[1]['x'])
-        y_top = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['y'])
-        y_bot = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[1]['y'])
+        x_top = CoordinatesCalculator.transform_coordinate_to_float(coordinates[0]['x'])
+        x_bot = CoordinatesCalculator.transform_coordinate_to_float(coordinates[1]['x'])
+        y_top = CoordinatesCalculator.transform_coordinate_to_float(coordinates[0]['y'])
+        y_bot = CoordinatesCalculator.transform_coordinate_to_float(coordinates[1]['y'])
         x_size = (x_top - x_bot)/4
         y_size = (y_top - y_bot)/3
         return {"x": abs(round(x_size, 3)), "y": round(y_size, 3)}
@@ -41,8 +41,8 @@ class CoordinatesCalculator:
 
     @staticmethod
     def __calculate_rectangles(coordinates, zoom):
-        x_top = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['x'])
-        y_top = -CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['y'])
+        x_top = CoordinatesCalculator.transform_coordinate_to_float(coordinates[0]['x'])
+        y_top = -CoordinatesCalculator.transform_coordinate_to_float(coordinates[0]['y'])
         rect_num = 2**(zoom-1)
         rect_x = 360/rect_num
         rect_y = 320/rect_num
@@ -73,7 +73,7 @@ class CoordinatesCalculator:
         return rectangles
 
     @staticmethod
-    def __transform_coordinate_to_float(coordinate):
+    def transform_coordinate_to_float(coordinate):
         coord = abs(coordinate['degree']) + (coordinate['minute'] + coordinate['second'] / 60) / 60
         # if coordinate['degree'] < 0:
         #     coord = -coord
@@ -83,7 +83,7 @@ class CoordinatesCalculator:
         return coord
 
     @staticmethod
-    def __transform_float_to_coordinate(float_coord):
+    def transform_float_to_coordinate(float_coord):
         coord = {
             "degree": int(float_coord),
             "minute": int(float_coord % 1 * 60),
@@ -93,10 +93,10 @@ class CoordinatesCalculator:
 
     @staticmethod
     def __get_center(coordinates):
-        x_top = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['x'])
-        x_bot = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[1]['x'])
-        y_top = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[0]['y'])
-        y_bot = CoordinatesCalculator.__transform_coordinate_to_float(coordinates[1]['y'])
+        x_top = CoordinatesCalculator.transform_coordinate_to_float(coordinates[0]['x'])
+        x_bot = CoordinatesCalculator.transform_coordinate_to_float(coordinates[1]['x'])
+        y_top = CoordinatesCalculator.transform_coordinate_to_float(coordinates[0]['y'])
+        y_bot = CoordinatesCalculator.transform_coordinate_to_float(coordinates[1]['y'])
         x_mid = round(abs((x_top - x_bot)/2) + x_top, 3)
         y_mid = round(abs((y_top - y_bot)/2) + y_bot, 3)
         return {
